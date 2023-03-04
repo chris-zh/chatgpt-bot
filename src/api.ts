@@ -147,18 +147,18 @@ class ChatGPT {
     }
 
     try {
-      const res = await this.http.get('/api/auth/session', {
-        headers: {
-          cookie: `cf_clearance=${this.config.cloudflareToken};__Secure-next-auth.session-token=${this.config.sessionToken}`,
-          referer: 'https://chat.openai.com/chat',
-          authority: 'chat.openai.com',
-        },
-      })
+      // const res = await this.http.get('/api/auth/session', {
+      //   headers: {
+      //     cookie: `cf_clearance=${this.config.cloudflareToken};__Secure-next-auth.session-token=${this.config.sessionToken}`,
+      //     referer: 'https://chat.openai.com/chat',
+      //     authority: 'chat.openai.com',
+      //   },
+      // })
 
-      const accessToken = res?.accessToken
+      const accessToken = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1UaEVOVUpHTkVNMVFURTRNMEZCTWpkQ05UZzVNRFUxUlRVd1FVSkRNRU13UmtGRVFrRXpSZyJ9.eyJodHRwczovL2FwaS5vcGVuYWkuY29tL3Byb2ZpbGUiOnsiZW1haWwiOiJjaHJpcy56aEBvdXRsb29rLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJnZW9pcF9jb3VudHJ5IjoiVVMifSwiaHR0cHM6Ly9hcGkub3BlbmFpLmNvbS9hdXRoIjp7InVzZXJfaWQiOiJ1c2VyLURsYXVRTHFJSXFYR2J2S3pISTROb2ZKMyJ9LCJpc3MiOiJodHRwczovL2F1dGgwLm9wZW5haS5jb20vIiwic3ViIjoiYXV0aDB8NjNlMzYwOTZkZjJhOGU2YjE2YWZiYzk0IiwiYXVkIjpbImh0dHBzOi8vYXBpLm9wZW5haS5jb20vdjEiLCJodHRwczovL29wZW5haS5vcGVuYWkuYXV0aDBhcHAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTY3Njg4NTQ0MywiZXhwIjoxNjc4MDk1MDQzLCJhenAiOiJUZEpJY2JlMTZXb1RIdE45NW55eXdoNUU0eU9vNkl0RyIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwgbW9kZWwucmVhZCBtb2RlbC5yZXF1ZXN0IG9yZ2FuaXphdGlvbi5yZWFkIG9mZmxpbmVfYWNjZXNzIn0.SECqJOTrcpwEQsNQ7ZK6RYPQticw-WrWSmfMxXt5LXZdE2Gh4SHsXhB78gMi-jzIIDfL72HemTpPK7mJLoj_If204748wBwHkZvLSkuK16Wg-YvIO3HTZyJIQ3GoEmgvnO1dW7J3JYzghJu5gxnefJMXx3Ag7mcNZua1QFpLZ9O1FjbNV_gVIybR8Cqfcmr3MfOLasDzmN66cl36EgSDez4sXvB18_YsemYUpe_NN7xzkYP5MQ8cpMF3qimOiJCWV6U98QM4U7TlnKMLuhyOZorQKqx0v8j2GWLGG14rS3fYP_QQwhdOK_k9QLrySrI3i2ACbUmJR9aKtJfajpSDUA'
 
       if (!accessToken) {
-        console.warn('no auth token', res)
+        // console.warn('no auth token', res)
         throw new Error('Unauthorized')
       }
 
